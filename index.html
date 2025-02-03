@@ -15,12 +15,62 @@
                 /* para adicionar uma linha abaixo do ID payment */
                 text-decoration: underline;
             }
+
+            #graph {
+                /* define a borde do grafico */
+                border: solid black 1px;
+            }
+
+            th,
+            td {
+                /* alinha o texto nas tabelas acima */
+                vertical-align: top;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- 
+    Emexplo 1.1 do livro, talvez este exemplo não seja fiddigno ao qual esta no livro pois irei altera-lo para aprender    
+-->
 
+    <table>
+        <tr>
+            <th>Insira a data</th>
+            <td></td>
+            <th>saldo do empréstimo, patrimônio líquido acumulado e pagamentos de juros</th>
+        </tr>
+        <tr>
+            <td>valor do empréstimo ($)</td>
+            <td><input id="amount" onchange="calculate();"></td>
+            <td rowspan="8"><canvas id="graph" width="400" height="250"></canvas></td>
+        </tr>
+        <tr>
+            <td>juros anuais (%):</td>
+            <td><input id="apr" onchange="calculate();"></td>
+        </tr>
+        <tr>
+            <td>Periodo de reembolso (ano):</td>
+            <td><input id="years" onchange="calculate();"></td>
+        </tr> <!-- Talvez não fecha aqui -->
+        <tr>
+            <td>Zipcode (Para encontrar financiadores):</td>
+            <td><input id="zipcode" onchange="calculate();"></td>
+        </tr><!-- Talvez não fecha aqui -->
+        <tr>
+            <th>Valor aproximado da parcela:</th>
+            <td><button onclick="calculate();">Calcular</button></td>
+        </tr>
+        <tr>
+            <td>Pagamentos Mensais:</td>
+            <td>R$<span class="output" id="payment"></span></td>
+        </tr>
+        <tr>
+            <td>Total de Pagamento:</td>
+            <td>R$ <span class="output" id="total"></span></td>
+        </tr>
+    </table>
 </body>
 
 </html>
