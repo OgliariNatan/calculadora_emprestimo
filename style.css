@@ -1,0 +1,21 @@
+ /* Estilização da página */
+ .output {
+     /* Saida em negrito */
+     font-weight: bold;
+
+     #payment {
+         /* para adicionar uma linha abaixo do ID payment */
+         text-decoration: underline;
+     }
+
+     #graph {
+         /* define a borde do grafico */
+         border: solid black 1px;
+     }
+
+     th,
+     td {
+         /* alinha o texto nas tabelas acima */
+         vertical-align: top;
+     }
+ }

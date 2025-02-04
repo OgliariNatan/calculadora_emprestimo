@@ -5,29 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calcuradora em JS</title>
-    <style>
-        /* Estilização da página */
-        .output {
-            /* Saida em negrito */
-            font-weight: bold;
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Calculadora em .JS">
 
-            #payment {
-                /* para adicionar uma linha abaixo do ID payment */
-                text-decoration: underline;
-            }
-
-            #graph {
-                /* define a borde do grafico */
-                border: solid black 1px;
-            }
-
-            th,
-            td {
-                /* alinha o texto nas tabelas acima */
-                vertical-align: top;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -55,7 +35,7 @@
             <td><input id="years" onchange="calculate();"></td>
         </tr> <!-- Talvez não fecha aqui -->
         <tr>
-            <td>Zipcode (Para encontrar financiadores):</td>
+            <td>código postal (Para encontrar financiadores):</td>
             <td><input id="zipcode" onchange="calculate();"></td>
         </tr><!-- Talvez não fecha aqui -->
         <tr>
@@ -64,7 +44,7 @@
         </tr>
         <tr>
             <td>Pagamentos Mensais:</td>
-            <td>R$<span class="output" id="payment"></span></td>
+            <td>R$ <span class="output" id="payment"></span></td>
         </tr>
         <tr>
             <td>Total de Pagamento:</td>
@@ -82,35 +62,11 @@
             </td>
         </tr>
     </table>
-    <script>
-        //Inicia o JS
-        "use strict"; //usa o mode restrito do JS5
-
-        /*
-        *Define a funlção calculate() chamadas pela rotinas de tratamentos
-        */
-        function calculate() {
-            //pesquisa os valores de entrada e saída
-            var amount = document.getElementById("amount");
-            console.log(amount.value);
-            var apr = document.getElementById("apr");
-            console.info(apr.value);
-            var years = document.getElementById("years");
-            var zipcode = document.getElementById("zipcode");
-            var payment = document.getElementById("payment");
-            var total = document.getElementById("total");
-            var totallinterest = document.getElementById("totallinterest");
-
-            //obtem a entrada do usuario sem tratamento de valores 
-            var principal = parseFloat(amount.value);
-            var interest = parseFloat(apr.value) / 100 / 12;
-            var payments = parseFloat(years.value) * 12;
-
-            //calcula o valor mensal de paghamento
-            var x = Math.pow(1 + interest, payments); //calcula potencias
-            var monthly = (principal * x * interest) / (x - 1);
-        }
-    </script>
+    <!-- 
+    -- Chama o arquivo do Java Script
+    -- É in0teressante deixar todos os script no final do documento, posi a página irá pimeiro crregar os elementos visuais e posterioer os elementos funcionais, o que passa uma impressaão de que a página é rapida 
+    -->
+    <script src="script.js"></script>
 </body>
 
 </html>
