@@ -51,4 +51,34 @@ function calculate() {
         totallinterest = "";
         chart(); //vazio apaga o gráfico
     }
+    //salva os valores, caso o navegador suporte
+    function save(amount, apr, years, zipcode) {
+        if (window.localStorage) { //caso o navegador suporte
+            //alert("O navegador suporta armagenar dados")
+            localStorage.loan_amount = amount;
+            localStorage.loan_apr = apr;
+            localStorage.loan_years = years;
+            localStorage.loan_zipcode = zipcode;
+        }
+    }
+    // restaura os campos de entrda caso possua e caso o navegador suporta
+    window.onload = function () { //realiza no carregamento da página
+        //verifica se o navegador suporta e verifica se possui dados
+        if (window.localStorage && localStorage.loan_amount) {
+            document.getElementById("amount").value = localStorage.loan_amount;
+            document.getElementById("apr").value = localStorage.loan_apr;
+            document.getElementById("years").value = localStorage.loan_years;
+            document.getElementById("zipcode").value = localStorage.loan_zipcode;
+        }
+    };
+
+    //passa as informações para financeiras locais, 
+    //estará em desuso
+    function getLenders(amount, apr, years, zipcode) {
+        //verifica se o navegador suporta XMLHttpRequest
+        if (!window.XMLHttpRequest) {
+            return;
+        }
+        //pagina16
+    }
 }
